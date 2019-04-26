@@ -22,13 +22,11 @@ public class Enemy : MonoBehaviour
         enemy = GetComponent<Enemy>();
         enemyRgdB2D = GetComponent<Rigidbody2D>();
         transform.position = point[startPoint].position;
-        
     }
-
-    // Update is called once per frame
 
     void FixedUpdate()
     {
+        if (startPoint != targetPoint)
         enemyRgdB2D.MovePosition(Vector2.MoveTowards(transform.position, point[targetPoint].position, speed * Time.deltaTime));
 
         if (transform.position == point[targetPoint].position)
@@ -40,7 +38,7 @@ public class Enemy : MonoBehaviour
             {
                 targetPoint = 0;
                 moveState = MoveState.EnemyWalkLeft;
-               enemyController.Play("EnemyWalkLeft");
+                enemyController.Play("EnemyWalkLeft");
             }
         }
     }

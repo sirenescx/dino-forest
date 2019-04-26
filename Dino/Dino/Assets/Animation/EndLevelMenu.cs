@@ -17,7 +17,6 @@ public class EndLevelMenu : MonoBehaviour
         endLevelMenuPanel.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isEnded)
@@ -28,7 +27,6 @@ public class EndLevelMenu : MonoBehaviour
         else
         {
             endLevelMenuPanel.SetActive(false);
-          //  Time.timeScale = 1;
         }
     }
 

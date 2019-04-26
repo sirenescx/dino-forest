@@ -177,29 +177,28 @@ public class Dino : MonoBehaviour
     }
 
     /// <summary>
-    /// Метод для поиска ближайшего к персонажу врага.
+    /// Метод для поиска ближайшего к персонажу объекта заданного типа.
     /// </summary>
     /// <returns></returns>
-    public GameObject FindClosestEnemy()
+    public GameObject FindClosest(string gameObjectTag)
     {
-        GameObject[] enemies;
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] objects;
+        objects = GameObject.FindGameObjectsWithTag(gameObjectTag);
         GameObject closest = null;
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
-        foreach (GameObject enemy in enemies)
+        foreach (var gameObject in objects)
         {
-            Vector3 diff = enemy.transform.position - position;
+            Vector3 diff = gameObject.transform.position - position;
             float curDistance = diff.sqrMagnitude;
             if (curDistance < distance)
             {
-                closest = enemy;
+                closest = gameObject;
                 distance = curDistance;
             }
         }
         return closest;
     }
-
     /// <summary>
     /// Метод, отвечающий за получения урона персонажем.
     /// </summary>
@@ -229,9 +228,8 @@ public class Dino : MonoBehaviour
     {
         if (other.tag == "EnemyBody" && wasHit == false)
         {
-            //  dinoRgdBd2D.velocity = directionVector * 5;
             Vector2 directionVector = direction == -1 ? Vector2.right : Vector2.left;
-            dinoRgdBd2D.position += directionVector * Time.deltaTime * 80;
+            dinoRgdBd2D.position += directionVector * Time.deltaTime * 70;
             source.PlayOneShot(heroHitSound);
             GetDamage(2);
             StartCoroutine(UndamagedTimer());
@@ -240,16 +238,32 @@ public class Dino : MonoBehaviour
         if (other.tag == "Spikes" && wasHit == false)
         {
             Vector2 directionVector = direction == -1 ? Vector2.right : Vector2.left;
-            dinoRgdBd2D.position += directionVector * Time.deltaTime * 80;
+            dinoRgdBd2D.position += directionVector * Time.deltaTime * 70;
             source.PlayOneShot(heroHitSound);
             GetDamage(1);
             StartCoroutine(UndamagedTimer());
         }
 
+        if (other.tag == "HealthBottle")
+        {
+            if (lostLives > 1)
+            {
+                lostLives -= 2;
+                Destroy(FindClosest("HealthBottle"));
+            }
+            else
+            if (lostLives > 0)
+            {
+                lostLives--;
+                Destroy(FindClosest("HealthBottle"));
+            }
+            else Destroy(FindClosest("HealthBottle"));
+        }
+
         if (other.tag == "EnemyHead")
         {
             JumpWhileHitting();
-            Destroy(FindClosestEnemy());
+            Destroy(FindClosest("Enemy"));
             source.PlayOneShot(enemyHitSound);
         }
 
