@@ -90,6 +90,7 @@ public class Dino : MonoBehaviour
         isDead = false;
         CoinPick.coinCounter = 0;
         EndLevelMenu.isEnded = false;
+        animatorController.SetInteger("direction", 1);
     }
 
     /// <summary>
