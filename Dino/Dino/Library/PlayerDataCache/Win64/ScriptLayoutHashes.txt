@@ -2,8 +2,7 @@ Win64
 PlayerPath?
 D:/University/COURSEWORK/Dino/Dino/Build/Dino.exe
 SceneListBegin?
-Assets/Scenes/Scene1.unity
-Assets/Scenes/Scene2.unity
+Assets/Scenes/Scene3.unity
 SceneListEnd?
 984dcc0ba3707b7691fbdca8ff508d28 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 01aa15e337e3a9c62f15153dfac6d589 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
@@ -86,7 +85,7 @@ fc108ce7d98c40ac0907e8ca7f500c76 UnityEngine.UI.dll:UnityEngine.UI.Text
 abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 27f857467276e4d617a6ea384b79e5c5 Assembly-CSharp.dll:.CameraController
-563bc549c8a87ee5a992fa98d972d392 Assembly-CSharp.dll:.Enemy
+8cc59040ac71b20a8eef8fb9127b3d30 Assembly-CSharp.dll:.Enemy
 97ae0d08fce0e704cac8e67da8ee4dcf Assembly-CSharp.dll:.MovingPlatform
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 06f0fef534ca4c1d6064fd77a26bf722 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
