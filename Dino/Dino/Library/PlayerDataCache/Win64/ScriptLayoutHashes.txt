@@ -2,7 +2,11 @@ Win64
 PlayerPath?
 D:/University/COURSEWORK/Dino/Dino/Build/Dino.exe
 SceneListBegin?
+Assets/Scenes/Scene1.unity
+Assets/Scenes/Scene2.unity
 Assets/Scenes/Scene3.unity
+Assets/Scenes/MainMenu.unity
+Assets/Scenes/ChooseLevel.unity
 SceneListEnd?
 984dcc0ba3707b7691fbdca8ff508d28 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 01aa15e337e3a9c62f15153dfac6d589 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
@@ -164,5 +168,7 @@ d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 fbd7d96b6a4a317ee3d73333d008769f Assembly-CSharp.dll:.DinoMovementScript
 c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
-b726586237218077a0e5b05f6ce2ff91 Assembly-CSharp.dll:.EndLevelMenu
+0b6b90e9f5d158934efd92ab5e55ab1d Assembly-CSharp.dll:.EndLevelMenu
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MainMenu
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ChooseLevel

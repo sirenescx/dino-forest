@@ -60,16 +60,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Animation\CameraController.cs" />
-    <Compile Include="Assets\Animation\CoinPick.cs" />
-    <Compile Include="Assets\Animation\Dino.cs" />
-    <Compile Include="Assets\Animation\DinoHeartScale.cs" />
-    <Compile Include="Assets\Animation\DinoMovementScript.cs" />
-    <Compile Include="Assets\Animation\DinoStarsScale.cs" />
-    <Compile Include="Assets\Animation\EndLevelMenu.cs" />
-    <Compile Include="Assets\Animation\Enemy.cs" />
-    <Compile Include="Assets\Animation\MovingPlatform.cs" />
-    <Compile Include="Assets\Animation\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\ChooseLevel.cs" />
+    <Compile Include="Assets\Scripts\CoinPick.cs" />
+    <Compile Include="Assets\Scripts\Dino.cs" />
+    <Compile Include="Assets\Scripts\DinoHeartScale.cs" />
+    <Compile Include="Assets\Scripts\DinoMovementScript.cs" />
+    <Compile Include="Assets\Scripts\DinoStarsScale.cs" />
+    <Compile Include="Assets\Scripts\EndLevelMenu.cs" />
+    <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\MovingPlatform.cs" />
+    <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/University/COURSEWORK/Dino/Dino/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
