@@ -2500,7 +2500,7 @@ MonoBehaviour:
   - {fileID: 21300002, guid: 789fad966f1518040937f61d5e61529a, type: 3}
   - {fileID: 21300004, guid: 789fad966f1518040937f61d5e61529a, type: 3}
   - {fileID: 21300006, guid: 789fad966f1518040937f61d5e61529a, type: 3}
-  starImage: {fileID: 0}
+  starImage: {fileID: 2122148722}
 --- !u!1 &308708064
 GameObject:
   m_ObjectHideFlags: 0
@@ -3036,7 +3036,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 305505057}
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
@@ -5355,8 +5355,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Restart
+      - m_Target: {fileID: 305505057}
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7847,7 +7847,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 305505057}
-        m_MethodName: Quit
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
