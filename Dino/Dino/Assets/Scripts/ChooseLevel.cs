@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Класс меню для выбора из списка существующих уровней.
+/// </summary>
 public class ChooseLevel : MonoBehaviour
 {
     void Start()

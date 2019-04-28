@@ -3042,11 +3042,11 @@ GameObject:
   - component: {fileID: 596898719}
   - component: {fileID: 596898718}
   - component: {fileID: 596898720}
-  - component: {fileID: 596898721}
   - component: {fileID: 596898722}
   - component: {fileID: 596898723}
   - component: {fileID: 596898724}
   - component: {fileID: 596898725}
+  - component: {fileID: 596898721}
   m_Layer: 0
   m_Name: Dino
   m_TagString: Player
@@ -5831,7 +5831,7 @@ GameObject:
   m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

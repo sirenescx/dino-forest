@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Класс для работы с перемещением камеры за персонажем.
+/// </summary>
 public class CameraController : MonoBehaviour
 {
     /// <summary>

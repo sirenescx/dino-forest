@@ -64,8 +64,8 @@
     <Compile Include="Assets\Scripts\ChooseLevel.cs" />
     <Compile Include="Assets\Scripts\CoinPick.cs" />
     <Compile Include="Assets\Scripts\Dino.cs" />
+    <Compile Include="Assets\Scripts\DinoController.cs" />
     <Compile Include="Assets\Scripts\DinoHeartScale.cs" />
-    <Compile Include="Assets\Scripts\DinoMovementScript.cs" />
     <Compile Include="Assets\Scripts\DinoStarsScale.cs" />
     <Compile Include="Assets\Scripts\EndLevelMenu.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
