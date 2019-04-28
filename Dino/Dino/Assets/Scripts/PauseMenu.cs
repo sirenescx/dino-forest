@@ -31,11 +31,18 @@ public class PauseMenu : MonoBehaviour
     /// Компонент для отображения текстовой информации на экран.
     /// </summary>
     public Text scoreText;
+    /// <summary>
+    /// Панель настроек.
+    /// </summary>
+    public GameObject settingsPanel;
+    public Slider volumeSlider;
 
     private void Start()
     {
         menuPanel.SetActive(false);
         deathMenuPanel.SetActive(false);
+        settingsPanel.SetActive(false);
+        volumeSlider.value = PlayerPrefs.GetFloat("VolumeValue");
     }
 
     private void Update()
@@ -119,13 +126,45 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    /// <summary>
+    /// Метод перехода к основному игровому меню.
+    /// </summary>
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
     }
 
+    /// <summary>
+    /// Метод выхода из приложения.
+    /// </summary>
     public void Quit()
     {
         Application.Quit();
+    }
+
+    /// <summary>
+    /// Метод перехода к меню настроек.
+    /// </summary>
+    public void ToSettings()
+    {
+        settingsPanel.SetActive(true);
+        ;
+    }
+
+    /// <summary>
+    /// Метод перехода к меню паузы.
+    /// </summary>
+    public void Back()
+    {
+        settingsPanel.SetActive(false);
+       
+    }
+
+    /// <summary>
+    /// Метод изменения громкости звуков.
+    /// </summary>
+    public void VolumeChanged()
+    {
+        PlayerPrefs.SetFloat("VolumeValue", volumeSlider.value);
     }
 }

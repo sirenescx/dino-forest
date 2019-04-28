@@ -78,6 +78,7 @@ public class Dino : MonoBehaviour
     void Awake()
     {
         source = GetComponent<AudioSource>();
+        source.volume = PlayerPrefs.GetFloat("VolumeValue");
     }
 
     /// <summary>
@@ -91,7 +92,9 @@ public class Dino : MonoBehaviour
         CoinPick.coinCounter = 0;
         EndLevelMenu.isEnded = false;
         animatorController.SetInteger("direction", 1);
+        source.volume = PlayerPrefs.GetFloat("VolumeValue");
     }
+
 
     /// <summary>
     /// Метод, отвечающий за прыжок игрока.
@@ -161,6 +164,7 @@ public class Dino : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        source.volume = PlayerPrefs.GetFloat("VolumeValue");
         if (Input.GetAxis("Horizontal") == 0 & isGrounded)
             Idle();
         if (lostLives >= 5)
@@ -281,7 +285,6 @@ public class Dino : MonoBehaviour
     {
         if (other.tag == "EnemyBody" && wasHit == false)
         {
-            //  dinoRgdBd2D.velocity = directionVector * 5;
             Vector2 directionVector = direction == -1 ? Vector2.right : Vector2.left;
             dinoRgdBd2D.position += directionVector * Time.deltaTime * 80;
             source.PlayOneShot(heroHitSound);
