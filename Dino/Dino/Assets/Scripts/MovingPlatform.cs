@@ -4,36 +4,51 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-
+    /// <summary>
+    /// Объект движущейся платформы.
+    /// </summary>
     public static GameObject movingPlatform;
-
-    public Transform[] point;
+    /// <summary>
+    /// Массив точек, между которыми перемещается платформа.
+    /// </summary>
+    public Transform[] points;
+    /// <summary>
+    /// Номер начальной точки движения.
+    /// </summary>
     public int startPoint;
+    /// <summary>
+    /// Номер конечной точки движения.
+    /// </summary>
     public int targetPoint;
+    /// <summary>
+    /// Скорость перемещения платформы.
+    /// </summary>
     public float speed;
+    /// <summary>
+    /// Физическое тело движущейся платформы.
+    /// </summary>
     public Rigidbody2D platformRgdBd2D;
-    //public Transform platformTransform;
-    // Start is called before the first frame update
+
+    /// <summary>
+    /// Инициализация физического тела платформы и установка платформы на начальную точку.
+    /// </summary>
     void Start()
     {
         platformRgdBd2D = GetComponent<Rigidbody2D>();
-
-        //gameObject.
-        transform.position = point[startPoint].position;
+        transform.position = points[startPoint].position;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Перемещение платформы с течением времени.
+    /// </summary>
     void FixedUpdate()
     {
-        platformRgdBd2D.MovePosition(Vector2.MoveTowards(transform.position, point[targetPoint].position, speed * Time.deltaTime));
-        
-        // gameObject.
-      //  transform.position = Vector2.MoveTowards(transform.position, point[targetPoint].position, speed * Time.deltaTime);
-        //platformTransform.position = Vector2.MoveTowards(platformTransform.position, point[targetPoint].position, speed * Time.deltaTime);
-        if (transform.position == point[targetPoint].position)
+        platformRgdBd2D.MovePosition(Vector2.MoveTowards(transform.position, points[targetPoint].position, speed * Time.deltaTime));
+
+        if (transform.position == points[targetPoint].position)
         {
             targetPoint++;
-            if (targetPoint == point.Length)
+            if (targetPoint == points.Length)
             {
                 targetPoint = 0;
             }

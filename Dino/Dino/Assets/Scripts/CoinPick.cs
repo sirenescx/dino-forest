@@ -21,12 +21,15 @@ public class CoinPick : MonoBehaviour
     /// <summary>
     /// Источник аудио.
     /// </summary>
-    private AudioSource source;
+    AudioSource source;
     /// <summary>
     /// Звук собирания монетки.
     /// </summary>
     public AudioClip coinPickSound;
 
+    /// <summary>
+    /// Инициализация источника аудио. 
+    /// </summary>
     void Awake()
     {
         source = GetComponent<AudioSource>();
@@ -47,7 +50,7 @@ public class CoinPick : MonoBehaviour
     /// <summary>
     /// Метод для отображения счета на экран.
     /// </summary>
-    private void OnGUI()
+    void OnGUI()
     {
         //Цвет текста надписи.
         countText.color = Color.white;

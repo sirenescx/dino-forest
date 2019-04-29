@@ -6,14 +6,30 @@ using UnityEngine.SceneManagement;
 
 public class DinoStarsScale : MonoBehaviour
 {
+    /// <summary>
+    /// Массив изображений шкалы звезд.
+    /// </summary>
     public Sprite[] stars = new Sprite[4];
+    /// <summary>
+    /// Изображение шкалы звезд на панели.
+    /// </summary>
     public Image starImage;
+    /// <summary>
+    /// Количество монет, которые существует на текущем уровне.
+    /// </summary>
     int levelCoinAmount;
+
+    /// <summary>
+    /// Установка количества монет в соответствии с текущим уровнем.
+    /// </summary>
     void Start()
     {
         levelCoinAmount = int.Parse(SceneManager.GetActiveScene().name.Substring(5, 1)) * 6;
     }
 
+    /// <summary>
+    /// Обновление шкалы звезд с течением времени.
+    /// </summary>
     void Update()
     {
         if (CoinPick.coinCounter <= levelCoinAmount / 4f)

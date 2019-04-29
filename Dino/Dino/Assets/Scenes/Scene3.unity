@@ -2957,8 +2957,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endLevelMenuPanel: {fileID: 998862746}
   levelNumberText: {fileID: 762184535}
-  heartsImage: {fileID: 1849057691}
-  coinText: {fileID: 14686075}
+  heartImage: {fileID: 0}
+  coinInfo: {fileID: 0}
 --- !u!114 &305505058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3836,7 +3836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa147e22aa15da4bbf468796be94ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 485486531}
   enemyRgdB2D: {fileID: 485486530}
   point:
   - {fileID: 1126525830}
@@ -4116,7 +4115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa147e22aa15da4bbf468796be94ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 510096332}
   enemyRgdB2D: {fileID: 510096331}
   point:
   - {fileID: 1529836224}
@@ -5478,7 +5476,6 @@ GameObject:
   - component: {fileID: 706628922}
   - component: {fileID: 706628927}
   - component: {fileID: 706628926}
-  - component: {fileID: 706628925}
   - component: {fileID: 706628924}
   - component: {fileID: 706628923}
   m_Layer: 0
@@ -5551,27 +5548,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &706628925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706628921}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fa147e22aa15da4bbf468796be94ba6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 706628925}
-  enemyRgdB2D: {fileID: 706628924}
-  point:
-  - {fileID: 316735871}
-  - {fileID: 727824663}
-  startPoint: 0
-  targetPoint: 1
-  speed: 0.004
-  enemyController: {fileID: 706628926}
 --- !u!95 &706628926
 Animator:
   serializedVersion: 3
@@ -7198,15 +7174,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 3
   jumpForce: 5.5
-  lostLives: 0
-  countText: {fileID: 776769611}
   dinoRgdBd2D: {fileID: 958389946}
   groundCheck: {fileID: 974973301}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
   enemyHitSound: {fileID: 8300000, guid: 9bce904fac08f3743877f574d73020c5, type: 3}
-  heroHitSound: {fileID: 8300000, guid: 02c9b1d275e6e904b94bc454dc51dc15, type: 3}
+  dinoHitSound: {fileID: 0}
 --- !u!114 &958389942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8861,7 +8835,7 @@ GameObject:
   m_Layer: 0
   m_Name: PointA
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -11803,7 +11777,7 @@ GameObject:
   m_Layer: 0
   m_Name: PointB
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

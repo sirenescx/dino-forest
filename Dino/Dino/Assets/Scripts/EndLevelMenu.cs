@@ -4,10 +4,16 @@ using UnityEngine.UI;
 
 public class EndLevelMenu : MonoBehaviour
 {
+    /// <summary>
+    /// Поле, содержащее информацию о том, был ли пройден уровень.
+    /// </summary>
     public static bool isEnded;
+    /// <summary>
+    /// Поле, содержащее информацию о том, отображается ли меню паузы.
+    /// </summary>
     public static bool pauseMenuDisabled;
     /// <summary>
-    /// Панель, содержащая в себе меню паузы.
+    /// Панель, содержащая в себе меню конца уровня.
     /// </summary>
     public GameObject endLevelMenuPanel;
     /// <summary>
@@ -17,11 +23,15 @@ public class EndLevelMenu : MonoBehaviour
     /// <summary>
     /// Изображение шкалы здоровья.
     /// </summary>
-    public Image heartsImage;
+    public Image heartImage;
     /// <summary>
     /// Компонент, содержащий в себе информацию о монетках.
     /// </summary>
-    public GameObject coinText;
+    public GameObject coinInfo;
+
+    /// <summary>
+    /// Скрытие меню конца уровня, задание текста, содержащего информацию о том, что текущий уровень был пройден.
+    /// </summary>
     void Start()
     {
         Time.timeScale = 1;
@@ -29,14 +39,17 @@ public class EndLevelMenu : MonoBehaviour
         levelNumberText.text = $"Level {int.Parse(SceneManager.GetActiveScene().name.Substring(5, 1))} Finished";
     }
 
+    /// <summary>
+    /// Обновление информации о том, был ли пройден уровень с течением времени.
+    /// </summary>
     void Update()
     {
         if (isEnded)
         {
             endLevelMenuPanel.SetActive(true);
             Time.timeScale = 0;
-            heartsImage.enabled = false;
-            coinText.SetActive(false);
+            heartImage.enabled = false;
+            coinInfo.SetActive(false);
         }
         else
         {
@@ -44,21 +57,33 @@ public class EndLevelMenu : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Метод для перезапуска уровня.
+    /// </summary>
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    /// <summary>
+    /// Метод для перехода к следующему уровню.
+    /// </summary>
     public void NextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    /// <summary>
+    /// Метод для перехода к основному игровому меню.
+    /// </summary>
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
     }
 
+    /// <summary>
+    /// Метод для выхода из программы.
+    /// </summary>
     public void Quit()
     {
         Application.Quit();

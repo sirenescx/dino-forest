@@ -6,10 +6,6 @@
 public class Enemy : MonoBehaviour
 {
     /// <summary>
-    /// Вражеский персонаж.
-    /// </summary>
-    public Enemy enemy;
-    /// <summary>
     /// Физический объект тела вражеского персонажа.
     /// </summary>
     public Rigidbody2D enemyRgdB2D;
@@ -34,13 +30,18 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public Animator enemyController;
 
-    private void Start()
+    /// <summary>
+    /// Инициализация физического тела персонажа, установка позиции персонажа на позицию начальной точки.
+    /// </summary>
+    void Start()
     {
-        enemy = GetComponent<Enemy>();
         enemyRgdB2D = GetComponent<Rigidbody2D>();
         transform.position = point[startPoint].position;
     }
 
+    /// <summary>
+    /// Изменение позиции персонажа с течением времени.
+    /// </summary>
     void FixedUpdate()
     {
         enemyRgdB2D.MovePosition(Vector2.MoveTowards(transform.position, point[targetPoint].position, speed * Time.deltaTime));

@@ -18,11 +18,7 @@ public class Dino : MonoBehaviour
     /// <summary>
     /// Счетчик потерянных жизней у игрока.
     /// </summary>
-    public int lostLives = 0;
-    /// <summary>
-    /// Поле для отображения информации о количестве монет у игрока.
-    /// </summary>
-    public Text countText;
+    internal int lostLives = 0;
     /// <summary>
     /// Контейнер для взаимодействия игрока 
     /// </summary>
@@ -30,7 +26,7 @@ public class Dino : MonoBehaviour
     /// <summary>
     /// Контроллер игрока.
     /// </summary>
-    private Animator animatorController;
+    Animator animatorController;
     /// <summary>
     /// Поле, имеющее значение true, если игрок находится на твердой поверхности, иначе - false.
     /// </summary>
@@ -54,7 +50,7 @@ public class Dino : MonoBehaviour
     /// <summary>
     /// Источник аудио.
     /// </summary>
-    private AudioSource source;
+    AudioSource source;
     /// <summary>
     /// Звук убийства врага.
     /// </summary>
@@ -62,13 +58,13 @@ public class Dino : MonoBehaviour
     /// <summary>
     /// Звук получения урона.
     /// </summary>
-    public AudioClip heroHitSound;
+    public AudioClip dinoHitSound;
     /// <summary>
     /// Жив персонаж или нет.
     /// </summary>
     public static bool isDead;
     /// <summary>
-    /// 
+    /// Был ли получен урон.
     /// </summary>
     bool wasHit = false;
 
@@ -84,7 +80,7 @@ public class Dino : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    private void Start()
+    void Start()
     {
         dinoRgdBd2D = GetComponent<Rigidbody2D>();
         animatorController = GetComponent<Animator>();
@@ -99,7 +95,7 @@ public class Dino : MonoBehaviour
     /// <summary>
     /// Метод, отвечающий за прыжок игрока.
     /// </summary>
-    public void Jump()
+    internal void Jump()
     {
         if (isGrounded & !animatorController.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
         {
@@ -112,7 +108,7 @@ public class Dino : MonoBehaviour
     /// <summary>
     /// Метод, отвечающий за подпрыгивание игрока после убийства вражеского персонажа.
     /// </summary>
-    public void JumpWhileHitting()
+    void JumpWhileHitting()
     {
         dinoRgdBd2D.velocity = new Vector2(dinoRgdBd2D.velocity.x, jumpForce - 1);
         isGrounded = false;
@@ -122,7 +118,7 @@ public class Dino : MonoBehaviour
     /// <summary>
     /// Метод, отвечающий за движение игрока вправо.
     /// </summary>
-    public void MoveRight()
+    internal void MoveRight()
     {
         animatorController.SetFloat("speed", walkSpeed);
         direction = 1;
@@ -133,7 +129,7 @@ public class Dino : MonoBehaviour
     /// <summary>
     /// Метод, отвечающий за движение игрока влево.
     /// </summary>
-    public void MoveLeft()
+    internal void MoveLeft()
     {
         animatorController.SetFloat("speed", walkSpeed);
         direction = -1;
@@ -144,7 +140,7 @@ public class Dino : MonoBehaviour
     /// <summary>
     /// Метод, отвечающий за спокойное состояние объекта игрока.
     /// </summary>
-    private void Idle()
+    void Idle()
     {
         animatorController.SetFloat("speed", 0);
     }
@@ -152,7 +148,7 @@ public class Dino : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         animatorController.SetBool("isGrounded", isGrounded);
@@ -162,7 +158,7 @@ public class Dino : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    private void Update()
+    void Update()
     {
         source.volume = PlayerPrefs.GetFloat("VolumeValue");
         if (Input.GetAxis("Horizontal") == 0 & isGrounded)
@@ -174,7 +170,7 @@ public class Dino : MonoBehaviour
     /// <summary>
     /// Метод, перезапускающий уровень при смерти персонажа.
     /// </summary>
-    public void Die()
+    internal void Die()
     {
         isDead = true;
     }
@@ -183,7 +179,7 @@ public class Dino : MonoBehaviour
     /// Метод для поиска ближайшего к персонажу объекта заданного типа.
     /// </summary>
     /// <returns></returns>
-    public GameObject FindClosest(string gameObjectTag)
+    GameObject FindClosest(string gameObjectTag)
     {
         GameObject[] objects;
         objects = GameObject.FindGameObjectsWithTag(gameObjectTag);
@@ -206,12 +202,16 @@ public class Dino : MonoBehaviour
     /// Метод, отвечающий за получения урона персонажем.
     /// </summary>
     /// <param name="damage"></param>
-    public void GetDamage(int damage)
+    void GetDamage(int damage)
     {
         lostLives += damage;
     }
 
-    public IEnumerator UndamagedTimer()
+    /// <summary>
+    /// Метод для запуска таймера после получения персонажем урона, во время которого персонаж больше не может получать урон.
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator UndamagedTimer()
     {
         wasHit = true;
         var hitState = direction == 1 ? "HitRight" : "HitLeft";
@@ -233,7 +233,7 @@ public class Dino : MonoBehaviour
         {
             Vector2 directionVector = direction == -1 ? Vector2.right : Vector2.left;
             dinoRgdBd2D.position += directionVector * Time.deltaTime * 70;
-            source.PlayOneShot(heroHitSound);
+            source.PlayOneShot(dinoHitSound);
             GetDamage(2);
             StartCoroutine(UndamagedTimer());
         }
@@ -242,7 +242,7 @@ public class Dino : MonoBehaviour
         {
             Vector2 directionVector = direction == -1 ? Vector2.right : Vector2.left;
             dinoRgdBd2D.position += directionVector * Time.deltaTime * 70;
-            source.PlayOneShot(heroHitSound);
+            source.PlayOneShot(dinoHitSound);
             GetDamage(1);
             StartCoroutine(UndamagedTimer());
         }
@@ -281,13 +281,13 @@ public class Dino : MonoBehaviour
     /// Метод взаимодействия с наносящими урон объектами в спокойном положении.
     /// </summary>
     /// <param name="other"></param>
-    private void OnTriggerStay2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "EnemyBody" && wasHit == false)
         {
             Vector2 directionVector = direction == -1 ? Vector2.right : Vector2.left;
             dinoRgdBd2D.position += directionVector * Time.deltaTime * 80;
-            source.PlayOneShot(heroHitSound);
+            source.PlayOneShot(dinoHitSound);
             GetDamage(2);
             StartCoroutine(UndamagedTimer());
         }
@@ -296,7 +296,7 @@ public class Dino : MonoBehaviour
         {
             Vector2 directionVector = direction == -1 ? Vector2.right : Vector2.left;
             dinoRgdBd2D.position += directionVector * Time.deltaTime * 80;
-            source.PlayOneShot(heroHitSound);
+            source.PlayOneShot(dinoHitSound);
             GetDamage(1);
             StartCoroutine(UndamagedTimer());
         }
@@ -306,7 +306,7 @@ public class Dino : MonoBehaviour
     /// Метод, делающий объект игрока дочерним по отношению к движущейся платформе при запрыгивании на нее.
     /// </summary>
     /// <param name="other"></param>
-    private void OnCollisionEnter2D(Collision2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("MovingPlatform"))
             transform.SetParent(other.transform);
@@ -316,7 +316,7 @@ public class Dino : MonoBehaviour
     /// Метод, убирающий объект игрока из дочерних объектов движущейся платформы при ее покидании.
     /// </summary>
     /// <param name="other"></param>
-    private void OnCollisionExit2D(Collision2D other)
+    void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("MovingPlatform"))
             transform.SetParent(null);

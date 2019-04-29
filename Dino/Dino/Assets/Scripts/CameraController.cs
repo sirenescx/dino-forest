@@ -26,11 +26,18 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public Dino dino;
 
+    /// <summary>
+    /// Метод, вызываемый в начале игры, в котором происходит инициализация персонажа.
+    /// </summary>
     void Start()
     {
         //Инициализация персонажа.
         dino = FindObjectOfType<Dino>();
     }
+
+    /// <summary>
+    /// Обновление позиции камеры с течением времени.
+    /// </summary>
     void FixedUpdate()
     {
         //Определение позиции камеры относительно персонажа.

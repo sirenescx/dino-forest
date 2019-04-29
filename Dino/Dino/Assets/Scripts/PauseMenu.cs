@@ -14,7 +14,7 @@ public class PauseMenu : MonoBehaviour
     /// <summary>
     /// Поставлена игра на паузу или нет.
     /// </summary>
-    private bool isPaused = false;
+    bool isPaused = false;
     /// <summary>
     /// Панель, содержащая в себе меню выбора действий после смерти персонажа.
     /// </summary>
@@ -22,7 +22,7 @@ public class PauseMenu : MonoBehaviour
     /// <summary>
     /// Компонент, содержащий в себе информацию о монетках.
     /// </summary>
-    public GameObject coinText;
+    public GameObject coinInfo;
     /// <summary>
     /// Изображение шкалы здоровья.
     /// </summary>
@@ -34,18 +34,27 @@ public class PauseMenu : MonoBehaviour
     /// <summary>
     /// Панель настроек.
     /// </summary>
-    public GameObject settingsPanel;
+    public GameObject settingsMenu;
+    /// <summary>
+    /// Слайдер для изменения громкости.
+    /// </summary>
     public Slider volumeSlider;
 
-    private void Start()
+    /// <summary>
+    /// Установка состояний меню, установка слайдера в положения, соответствующее информации в файле playerprefs.dat.
+    /// </summary>
+    void Start()
     {
         menuPanel.SetActive(false);
         deathMenuPanel.SetActive(false);
-        settingsPanel.SetActive(false);
+        settingsMenu.SetActive(false);
         volumeSlider.value = PlayerPrefs.GetFloat("VolumeValue");
     }
 
-    private void Update()
+    /// <summary>
+    /// Изменения в отображении панелей меню с течением времени.
+    /// </summary>
+    void Update()
     {
         if (EndLevelMenu.isEnded)
         {
@@ -64,7 +73,6 @@ public class PauseMenu : MonoBehaviour
             // Если игра поставлена на паузу:
             if (isPaused & !Dino.isDead)
             {
-                // deathMenuPanel.SetActive(false);
                 // Меню паузы отображается.
                 menuPanel.SetActive(true);
                 // Остановка игрового времени (пауза).
@@ -85,7 +93,7 @@ public class PauseMenu : MonoBehaviour
                     // Остановка игрового времени (пауза).
                     Time.timeScale = 0;
                     heartsImage.enabled = false;
-                    coinText.SetActive(false);
+                    coinInfo.SetActive(false);
                 }
                 else
                 {
@@ -100,7 +108,7 @@ public class PauseMenu : MonoBehaviour
     /// <summary>
     /// Метод для отображения счета на экран.
     /// </summary>
-    private void OnGUI()
+    void OnGUI()
     {
         //Цвет текста надписи.
         scoreText.color = Color.white;
@@ -147,7 +155,7 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void ToSettings()
     {
-        settingsPanel.SetActive(true);
+        settingsMenu.SetActive(true);
         ;
     }
 
@@ -156,8 +164,7 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void Back()
     {
-        settingsPanel.SetActive(false);
-       
+        settingsMenu.SetActive(false);
     }
 
     /// <summary>
