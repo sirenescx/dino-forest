@@ -2784,10 +2784,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPanel: {fileID: 457163250}
   deathMenuPanel: {fileID: 799842277}
-  coinText: {fileID: 611778819}
+  coinInfo: {fileID: 611778819}
   heartsImage: {fileID: 1494388075}
   scoreText: {fileID: 790598934}
-  settingsPanel: {fileID: 1051539543}
+  settingsMenu: {fileID: 1051539543}
   volumeSlider: {fileID: 1738496639}
 --- !u!114 &584576909
 MonoBehaviour:
@@ -2841,8 +2841,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endLevelMenuPanel: {fileID: 16504119}
   levelNumberText: {fileID: 587509934}
-  heartsImage: {fileID: 1494388075}
-  coinText: {fileID: 611778819}
+  heartImage: {fileID: 1494388075}
+  coinInfo: {fileID: 611778819}
 --- !u!1 &584645455
 GameObject:
   m_ObjectHideFlags: 0
@@ -3244,15 +3244,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 3
   jumpForce: 5.5
-  lostLives: 0
-  countText: {fileID: 611778821}
   dinoRgdBd2D: {fileID: 596898719}
   groundCheck: {fileID: 1029579681}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
   enemyHitSound: {fileID: 8300000, guid: 9bce904fac08f3743877f574d73020c5, type: 3}
-  heroHitSound: {fileID: 8300000, guid: 02c9b1d275e6e904b94bc454dc51dc15, type: 3}
+  dinoHitSound: {fileID: 0}
 --- !u!114 &596898724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3506,7 +3504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4739113abd584240a2638d45b6cce13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point:
+  points:
   - {fileID: 1837394171}
   - {fileID: 637164874}
   startPoint: 0
@@ -3607,7 +3605,7 @@ GameObject:
   m_Layer: 0
   m_Name: EndPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -8568,7 +8566,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa147e22aa15da4bbf468796be94ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1490961956}
   enemyRgdB2D: {fileID: 1490961955}
   point:
   - {fileID: 976858182}
@@ -9551,7 +9548,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa147e22aa15da4bbf468796be94ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1651281945}
   enemyRgdB2D: {fileID: 1651281944}
   point:
   - {fileID: 1391760665}
@@ -10467,7 +10463,7 @@ GameObject:
   m_Layer: 0
   m_Name: StartPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

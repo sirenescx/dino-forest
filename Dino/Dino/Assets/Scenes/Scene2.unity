@@ -1729,7 +1729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 184372513}
   m_Layer: 0
-  m_Name: StartPoint
+  m_Name: StartPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2673,10 +2673,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPanel: {fileID: 1406523828}
   deathMenuPanel: {fileID: 1659432149}
-  coinText: {fileID: 776769609}
+  coinInfo: {fileID: 776769609}
   heartsImage: {fileID: 1849057691}
   scoreText: {fileID: 14686077}
-  settingsPanel: {fileID: 1375201729}
+  settingsMenu: {fileID: 1375201729}
   volumeSlider: {fileID: 659636143}
 --- !u!114 &305505056
 MonoBehaviour:
@@ -2712,8 +2712,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endLevelMenuPanel: {fileID: 80074495}
   levelNumberText: {fileID: 1414145339}
-  heartsImage: {fileID: 1849057691}
-  coinText: {fileID: 776769609}
+  heartImage: {fileID: 1849057691}
+  coinInfo: {fileID: 776769609}
 --- !u!114 &305505058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3257,7 +3257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4739113abd584240a2638d45b6cce13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point:
+  points:
   - {fileID: 510219694}
   - {fileID: 1105742346}
   startPoint: 0
@@ -3578,7 +3578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 462011057}
   m_Layer: 0
-  m_Name: StartPoint
+  m_Name: StartPointFC1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3689,7 +3689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 478540427}
   m_Layer: 0
-  m_Name: EndPoint
+  m_Name: EndPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3805,7 +3805,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa147e22aa15da4bbf468796be94ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 485486531}
   enemyRgdB2D: {fileID: 485486530}
   point:
   - {fileID: 1126525830}
@@ -4054,7 +4053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 510219694}
   m_Layer: 0
-  m_Name: StartPoint
+  m_Name: StartPointFC2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5311,10 +5310,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4739113abd584240a2638d45b6cce13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point:
+  points:
   - {fileID: 184372513}
-  - {fileID: 478540427}
   - {fileID: 1348347238}
+  - {fileID: 478540427}
   startPoint: 0
   targetPoint: 2
   speed: 1.5
@@ -5424,7 +5423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 675284925}
   m_Layer: 0
-  m_Name: EndPoint
+  m_Name: EndPointFC1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5821,7 +5820,7 @@ GameObject:
   - component: {fileID: 738619245}
   - component: {fileID: 738619244}
   m_Layer: 8
-  m_Name: Small Cube 2
+  m_Name: Small Cube 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5853,7 +5852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4739113abd584240a2638d45b6cce13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point:
+  points:
   - {fileID: 1632515138}
   - {fileID: 2020952600}
   startPoint: 1
@@ -6376,7 +6375,7 @@ GameObject:
   m_Layer: 0
   m_Name: EndPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -7148,15 +7147,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 3
   jumpForce: 5.5
-  lostLives: 0
-  countText: {fileID: 776769611}
   dinoRgdBd2D: {fileID: 958389946}
   groundCheck: {fileID: 974973301}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
   enemyHitSound: {fileID: 8300000, guid: 9bce904fac08f3743877f574d73020c5, type: 3}
-  heroHitSound: {fileID: 8300000, guid: 02c9b1d275e6e904b94bc454dc51dc15, type: 3}
+  dinoHitSound: {fileID: 0}
 --- !u!114 &958389942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8073,7 +8070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4739113abd584240a2638d45b6cce13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point:
+  points:
   - {fileID: 462011057}
   - {fileID: 675284925}
   startPoint: 0
@@ -8264,7 +8261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1105742346}
   m_Layer: 0
-  m_Name: EndPoint
+  m_Name: EndPointFC2
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -9150,7 +9147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4739113abd584240a2638d45b6cce13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point:
+  points:
   - {fileID: 1498939051}
   - {fileID: 840965008}
   startPoint: 0
@@ -9299,7 +9296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1348347238}
   m_Layer: 0
-  m_Name: HighPoint
+  m_Name: HighPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10746,7 +10743,7 @@ GameObject:
   m_Layer: 0
   m_Name: StartPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -11501,7 +11498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1632515138}
   m_Layer: 0
-  m_Name: StartPoint
+  m_Name: StartPointFC3
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -11786,7 +11783,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa147e22aa15da4bbf468796be94ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1653461156}
   enemyRgdB2D: {fileID: 1653461155}
   point:
   - {fileID: 1051383221}
@@ -13148,7 +13144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2020952600}
   m_Layer: 0
-  m_Name: EndPoint
+  m_Name: EndPointFC3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
