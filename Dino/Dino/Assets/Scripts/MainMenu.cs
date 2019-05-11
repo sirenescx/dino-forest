@@ -37,5 +37,10 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void RestartGame()
+    {
+        PlayerPrefs.SetInt("openedLevels", 0);
+    }
+
 
 }

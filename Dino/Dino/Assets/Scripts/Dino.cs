@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 /// <summary>
@@ -274,6 +274,7 @@ public class Dino : MonoBehaviour
         {
             EndLevelMenu.isEnded = true;
             EndLevelMenu.pauseMenuDisabled = true;
+            PlayerPrefs.SetInt("openedLevels", int.Parse(SceneManager.GetActiveScene().name.Substring(5, 1)));
         }
     }
 

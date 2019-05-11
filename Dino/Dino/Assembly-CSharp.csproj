@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\DinoStarsScale.cs" />
     <Compile Include="Assets\Scripts\EndLevelMenu.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\LevelContoller.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\MovingPlatform.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
