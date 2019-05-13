@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 
 /// <summary>
 /// Класс меню для выбора из списка существующих уровней.
@@ -32,12 +31,16 @@ public class ChooseLevel : MonoBehaviour
         openedLevels = PlayerPrefs.GetInt("openedLevels");
 
         // Отображение открытых уровней.
-        for (int i = 1; i <= openedLevels; i++)
+        try
         {
-            levelButtons[i].enabled = true;
-            locks[i - 1].enabled = false;
-            buttonImage[i - 1].enabled = true;
+            for (int i = 1; i <= openedLevels; i++)
+            {
+                levelButtons[i].enabled = true;
+                locks[i - 1].enabled = false;
+                buttonImage[i - 1].enabled = true;
+            }
         }
+        catch (IndexOutOfRangeException) { }
 
         // Отображение закрытых уровней.
         for (int i = openedLevels + 1; i < levelButtons.Length; i++)
@@ -46,7 +49,7 @@ public class ChooseLevel : MonoBehaviour
             locks[i - 1].enabled = true;
             buttonImage[i - 1].enabled = false;
         }
-    } 
+    }
 
     /// <summary>
     /// Метод перехода к первому уровню.

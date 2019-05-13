@@ -3250,7 +3250,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   enemyHitSound: {fileID: 8300000, guid: 9bce904fac08f3743877f574d73020c5, type: 3}
-  dinoHitSound: {fileID: 0}
+  dinoHitSound: {fileID: 8300000, guid: 02c9b1d275e6e904b94bc454dc51dc15, type: 3}
 --- !u!114 &596898724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6081,7 +6081,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1051539544
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6595,7 +6595,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.233, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9410,10 +9410,10 @@ RectTransform:
   m_Father: {fileID: 1283934925}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.233, y: 0}
-  m_AnchorMax: {x: 0.233, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 30, y: 0}
+  m_SizeDelta: {x: 50, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1649499006
 MonoBehaviour:
@@ -9435,8 +9435,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 64fa3033c14547b41a1b2cd0df5393de, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -9878,8 +9878,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 30}
+  m_AnchoredPosition: {x: 0, y: -18}
+  m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1738496639
 MonoBehaviour:

@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -41,6 +41,4 @@ public class MainMenu : MonoBehaviour
     {
         PlayerPrefs.SetInt("openedLevels", 0);
     }
-
-
 }

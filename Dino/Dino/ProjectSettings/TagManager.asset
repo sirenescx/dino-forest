@@ -15,6 +15,7 @@ TagManager:
   - Spikes
   - BackGround
   - HealthBottle
+  - Music
   layers:
   - Default
   - TransparentFX
