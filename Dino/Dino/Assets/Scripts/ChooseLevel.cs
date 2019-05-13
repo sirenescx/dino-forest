@@ -9,29 +9,43 @@ using UnityEngine.UI;
 /// </summary>
 public class ChooseLevel : MonoBehaviour
 {
+    /// <summary>
+    /// Кнопки перехода к уровням.
+    /// </summary>
     public Button[] levelButtons;
+    /// <summary>
+    /// Количество открытых уровней.
+    /// </summary>
     int openedLevels;
+    /// <summary>
+    ///  Изображения замков для закрытых уровней.
+    /// </summary>
     public Image[] locks;
+    /// <summary>
+    /// Изображения кнопок.
+    /// </summary>
     public Image[] buttonImage;
 
     void Start()
     {
+        // Получение количества пройденных уровней.
         openedLevels = PlayerPrefs.GetInt("openedLevels");
 
+        // Отображение открытых уровней.
         for (int i = 1; i <= openedLevels; i++)
         {
             levelButtons[i].enabled = true;
             locks[i - 1].enabled = false;
             buttonImage[i - 1].enabled = true;
-
         }
+
+        // Отображение закрытых уровней.
         for (int i = openedLevels + 1; i < levelButtons.Length; i++)
         {
             levelButtons[i].enabled = false;
             locks[i - 1].enabled = true;
             buttonImage[i - 1].enabled = false;
         }
-
     } 
 
     /// <summary>
