@@ -28,6 +28,10 @@ public class EndLevelMenu : MonoBehaviour
     /// Компонент, содержащий в себе информацию о монетках.
     /// </summary>
     public GameObject coinInfo;
+    /// <summary>
+    /// Является ли уровень обучающим.
+    /// </summary>
+    public bool isTutorial;
 
     /// <summary>
     /// Скрытие меню конца уровня, задание текста, содержащего информацию о том, что текущий уровень был пройден.
@@ -36,7 +40,10 @@ public class EndLevelMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         endLevelMenuPanel.SetActive(false);
+        if (!isTutorial)
         levelNumberText.text = $"Level {int.Parse(SceneManager.GetActiveScene().name.Substring(5, 1))} Finished";
+        else
+            levelNumberText.text = $"Tutorial Finished";
     }
 
     /// <summary>

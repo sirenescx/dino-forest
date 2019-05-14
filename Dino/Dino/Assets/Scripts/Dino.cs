@@ -67,6 +67,10 @@ public class Dino : MonoBehaviour
     /// Был ли получен урон.
     /// </summary>
     bool wasHit = false;
+    /// <summary>
+    /// Является ли уровень обучающим.
+    /// </summary>
+    public bool isTutorial;
 
     /// <summary>
     /// 
@@ -274,6 +278,7 @@ public class Dino : MonoBehaviour
         {
             EndLevelMenu.isEnded = true;
             EndLevelMenu.pauseMenuDisabled = true;
+            if (!isTutorial)
             PlayerPrefs.SetInt("openedLevels", int.Parse(SceneManager.GetActiveScene().name.Substring(5, 1)));
         }
     }

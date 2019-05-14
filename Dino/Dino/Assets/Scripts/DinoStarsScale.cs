@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -18,13 +16,19 @@ public class DinoStarsScale : MonoBehaviour
     /// Количество монет, которые существует на текущем уровне.
     /// </summary>
     int levelCoinAmount;
+    /// <summary>
+    /// Является ли уровень обучающим.
+    /// </summary>
+    public bool isTutorial;
 
     /// <summary>
     /// Установка количества монет в соответствии с текущим уровнем.
     /// </summary>
     void Start()
     {
-        levelCoinAmount = int.Parse(SceneManager.GetActiveScene().name.Substring(5, 1)) * 6;
+        if (!isTutorial)
+            levelCoinAmount = int.Parse(SceneManager.GetActiveScene().name.Substring(5, 1)) * 6;
+        else return;
     }
 
     /// <summary>
@@ -32,13 +36,17 @@ public class DinoStarsScale : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (CoinPick.coinCounter <= levelCoinAmount / 4f)
-            starImage.sprite = stars[3];
-        if (CoinPick.coinCounter > levelCoinAmount / 4f & CoinPick.coinCounter <= levelCoinAmount / 2f)
-            starImage.sprite = stars[2];
-        if (CoinPick.coinCounter > levelCoinAmount / 2f & CoinPick.coinCounter < levelCoinAmount * 3f / 4)
-            starImage.sprite = stars[1];
-        if (CoinPick.coinCounter > levelCoinAmount * 3f / 4)
-            starImage.sprite = stars[0];
+        if (isTutorial) return;
+        else
+        {
+            if (CoinPick.coinCounter <= levelCoinAmount / 4f)
+                starImage.sprite = stars[3];
+            if (CoinPick.coinCounter > levelCoinAmount / 4f & CoinPick.coinCounter <= levelCoinAmount / 2f)
+                starImage.sprite = stars[2];
+            if (CoinPick.coinCounter > levelCoinAmount / 2f & CoinPick.coinCounter < levelCoinAmount * 3f / 4)
+                starImage.sprite = stars[1];
+            if (CoinPick.coinCounter > levelCoinAmount * 3f / 4)
+                starImage.sprite = stars[0];
+        }
     }
 }

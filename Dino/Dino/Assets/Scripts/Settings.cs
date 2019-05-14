@@ -15,11 +15,11 @@ public class Settings : MonoBehaviour
     /// </summary>
     public static float volume;
 
-    private void Awake()
-    {
-        volumeSlider.value = PlayerPrefs.GetFloat("VolumeValue");
-    }
-    void Start()
+    /// <summary>
+    /// Метод, вызываемый, когда экземпляр скрипта будет загружен. Установка громкости в соответствии с 
+    /// данными в файле playerprefs.dat.
+    /// </summary>
+    void Awake()
     {
         volumeSlider.value = PlayerPrefs.GetFloat("VolumeValue");
     }

@@ -23,7 +23,7 @@ public class ChooseLevel : MonoBehaviour
     /// <summary>
     /// Изображения кнопок.
     /// </summary>
-    public Image[] buttonImage;
+    public Image[] buttonImages;
 
     void Start()
     {
@@ -37,7 +37,7 @@ public class ChooseLevel : MonoBehaviour
             {
                 levelButtons[i].enabled = true;
                 locks[i - 1].enabled = false;
-                buttonImage[i - 1].enabled = true;
+                buttonImages[i - 1].enabled = true;
             }
         }
         catch (IndexOutOfRangeException) { }
@@ -47,37 +47,24 @@ public class ChooseLevel : MonoBehaviour
         {
             levelButtons[i].enabled = false;
             locks[i - 1].enabled = true;
-            buttonImage[i - 1].enabled = false;
+            buttonImages[i - 1].enabled = false;
         }
     }
 
     /// <summary>
-    /// Метод перехода к первому уровню.
+    /// Метод перехода к уровню с заданным номером.
     /// </summary>
-    public void Level1()
+    /// <param name="levelNumber"></param>
+    public void Level(int levelNumber)
     {
-        SceneManager.LoadScene(2);
-    }
-    /// <summary>
-    /// Метод перехода ко второму уровню.
-    /// </summary>
-    public void Level2()
-    {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(levelNumber + 1);
     }
 
-    /// <summary>
-    /// Метод перехода к третьему уровню.
-    /// </summary>
-    public void Level3()
-    {
-        SceneManager.LoadScene(4);
-    }
 
     /// <summary>
     /// Метод перехода к основному игровому меню.
     /// </summary>
-    public void MainMenu()
+    public void Back()
     {
         SceneManager.LoadScene(0);
     }

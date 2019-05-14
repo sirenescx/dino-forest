@@ -3,16 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-        
-    }
-
     /// <summary>
     /// Метод перехода к меню выбора уровня.
     /// </summary>
@@ -27,6 +17,14 @@ public class MainMenu : MonoBehaviour
     public void Settings()
     {
         SceneManager.LoadScene(5);
+    }
+
+    /// <summary>
+    /// Метод перехода к обучению.
+    /// </summary>
+    public void Tutorial()
+    {
+        SceneManager.LoadScene(6);
     }
 
     /// <summary>
