@@ -1003,7 +1003,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0020484924, y: 0.0054701567}
+  m_Offset: {x: 0.0020484924, y: 0.007777691}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1014,7 +1014,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9276428, y: 0.8535297}
+  m_Size: {x: 0.9276428, y: 0.856729}
   m_EdgeRadius: 0
 --- !u!1 &79368089
 GameObject:
@@ -3198,6 +3198,7 @@ MonoBehaviour:
   levelNumberText: {fileID: 762184535}
   heartImage: {fileID: 1849057691}
   coinInfo: {fileID: 776769609}
+  isTutorial: 0
 --- !u!114 &305505058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3216,6 +3217,7 @@ MonoBehaviour:
   - {fileID: 21300004, guid: 789fad966f1518040937f61d5e61529a, type: 3}
   - {fileID: 21300006, guid: 789fad966f1518040937f61d5e61529a, type: 3}
   starImage: {fileID: 1091463377}
+  isTutorial: 0
 --- !u!1 &308708064
 GameObject:
   m_ObjectHideFlags: 0
@@ -7532,6 +7534,7 @@ MonoBehaviour:
     m_Bits: 256
   enemyHitSound: {fileID: 8300000, guid: 9bce904fac08f3743877f574d73020c5, type: 3}
   dinoHitSound: {fileID: 8300000, guid: 02c9b1d275e6e904b94bc454dc51dc15, type: 3}
+  isTutorial: 0
 --- !u!114 &958389942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7701,7 +7704,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958389939}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.307, y: -2.915, z: 0}
+  m_LocalPosition: {x: -3.298, y: -2.906, z: 0}
   m_LocalScale: {x: 2.009, y: 2.009, z: 1}
   m_Children:
   - {fileID: 974973301}

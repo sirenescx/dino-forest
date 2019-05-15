@@ -223,7 +223,7 @@ public class Dino : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
         var state = direction == 1 ? "IdleRight" : "IdleLeft";
         animatorController.Play(state);
-        yield return new WaitForSeconds(1.25f);
+        yield return new WaitForSeconds(1f);
         wasHit = false;
     }
 
