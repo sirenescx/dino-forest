@@ -2,6 +2,9 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Класс, отвечающий за шкалу звезд в конце уровня.
+/// </summary>
 public class DinoStarsScale : MonoBehaviour
 {
     /// <summary>

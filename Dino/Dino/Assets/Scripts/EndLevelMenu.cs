@@ -2,6 +2,9 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Класс меню конца уровня.
+/// </summary>
 public class EndLevelMenu : MonoBehaviour
 {
     /// <summary>

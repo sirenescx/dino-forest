@@ -58,4 +58,3 @@ public class CoinPick : MonoBehaviour
         countText.text = "Coins: " + coinCounter.ToString();
     }
 }
-

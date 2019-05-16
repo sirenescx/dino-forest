@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Класс, отвечающий за здоровье персонажа.
+/// </summary>
 public class DinoHealth : MonoBehaviour
 {
     /// <summary>

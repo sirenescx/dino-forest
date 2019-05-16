@@ -51,5 +51,3 @@ public class CameraController : MonoBehaviour
                                          Mathf.Clamp(transform.position.z, minCameraPos.z, maxCameraPos.z));
     }
 }
-
-

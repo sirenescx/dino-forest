@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Класс меню настроек.
+/// </summary>
 public class Settings : MonoBehaviour
 {
     /// <summary>

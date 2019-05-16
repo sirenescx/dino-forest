@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Класс основного меню.
+/// </summary>
 public class MainMenu : MonoBehaviour
 {
     /// <summary>
@@ -35,6 +38,9 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    /// <summary>
+    /// Метод для сброса прогресса в игре.
+    /// </summary>
     public void RestartGame()
     {
         PlayerPrefs.SetInt("openedLevels", 0);

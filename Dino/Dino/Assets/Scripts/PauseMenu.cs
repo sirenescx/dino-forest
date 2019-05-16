@@ -156,7 +156,6 @@ public class PauseMenu : MonoBehaviour
     public void ToSettings()
     {
         settingsMenu.SetActive(true);
-        ;
     }
 
     /// <summary>

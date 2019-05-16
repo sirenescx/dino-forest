@@ -73,7 +73,7 @@ public class Dino : MonoBehaviour
     public bool isTutorial;
 
     /// <summary>
-    /// 
+    /// Получение значения громкости из файла PlayerPrefs.dat
     /// </summary>
     void Awake()
     {
@@ -82,7 +82,7 @@ public class Dino : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Инициализация персонажа. Сброс количества монет и отображения меню конца уровня.
     /// </summary>
     void Start()
     {
@@ -150,7 +150,7 @@ public class Dino : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Проверка нахождения персонажа на твердой поверхности.
     /// </summary>
     void FixedUpdate()
     {
@@ -160,7 +160,7 @@ public class Dino : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Изменение громкости звука. Отслеживание состояния персонажа.
     /// </summary>
     void Update()
     {
@@ -202,6 +202,7 @@ public class Dino : MonoBehaviour
         }
         return closest;
     }
+
     /// <summary>
     /// Метод, отвечающий за получения урона персонажем.
     /// </summary>
@@ -328,4 +329,3 @@ public class Dino : MonoBehaviour
             transform.SetParent(null);
     }
 }
-

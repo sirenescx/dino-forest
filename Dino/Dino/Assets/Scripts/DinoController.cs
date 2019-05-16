@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 
+/// <summary>
+/// Класс для управления персонажем с клавиатуры.
+/// </summary>
 public class DinoController : MonoBehaviour
 {
     /// <summary>
