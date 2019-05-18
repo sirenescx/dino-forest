@@ -7,6 +7,7 @@ Assets/Scenes/ChooseLevel.unity
 Assets/Scenes/Scene1.unity
 Assets/Scenes/Scene2.unity
 Assets/Scenes/Scene3.unity
+Assets/Scenes/Scene4.unity
 Assets/Scenes/Settings.unity
 Assets/Scenes/SceneTutorial.unity
 SceneListEnd?
@@ -150,6 +151,7 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 510fefd6a544e16a3ffefa557ddcba39 Unity.TextMeshPro.dll:TMPro.PackageResourceImporterWindow
 aa82b3ce4c0c9b227036c0337315c5d3 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
 e51c09a4cc447f11db225afcd8e3e490 Unity.TextMeshPro.dll:TMPro.TMP_Settings
+ca67ece200cf2185d56daa61f7788ceb Assembly-CSharp.dll:.Boss
 cf96e5f7b3d069bab453925bd41be04e UnityEngine.TestRunner.dll:UnityEngine.TestTools.EnumerableSetUpTearDownCommandState
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 259d013faac28e8ba0aa2a7542273735 UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController

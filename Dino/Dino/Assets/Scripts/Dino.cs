@@ -114,7 +114,7 @@ public class Dino : MonoBehaviour
     /// </summary>
     void JumpWhileHitting()
     {
-        dinoRgdBd2D.velocity = new Vector2(dinoRgdBd2D.velocity.x, jumpForce - 1);
+        dinoRgdBd2D.velocity = new Vector2(dinoRgdBd2D.velocity.x, jumpForce + 1);
         isGrounded = false;
         animatorController.SetBool("isGrounded", isGrounded);
     }
@@ -234,7 +234,7 @@ public class Dino : MonoBehaviour
     /// <param name="other"></param>
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "EnemyBody" && wasHit == false)
+        if ((other.tag == "EnemyBody" | other.tag == "BossBody") && wasHit == false)
         {
             Vector2 directionVector = direction == -1 ? Vector2.right : Vector2.left;
             dinoRgdBd2D.position += directionVector * Time.deltaTime * 70;
@@ -275,12 +275,21 @@ public class Dino : MonoBehaviour
             source.PlayOneShot(enemyHitSound);
         }
 
+        if (other.tag == "BossHead")
+        {
+        //    JumpWhileHitting();
+            Vector2 directionVector = direction == -1 ? Vector2.right : Vector2.left;
+            dinoRgdBd2D.position += directionVector * Time.deltaTime * 70;
+            Boss.lives--;
+            source.PlayOneShot(enemyHitSound);
+        }
+
         if (other.tag == "LevelEnd")
         {
             EndLevelMenu.isEnded = true;
             EndLevelMenu.pauseMenuDisabled = true;
             if (!isTutorial)
-            PlayerPrefs.SetInt("openedLevels", int.Parse(SceneManager.GetActiveScene().name.Substring(5, 1)));
+                PlayerPrefs.SetInt("openedLevels", int.Parse(SceneManager.GetActiveScene().name.Substring(5, 1)));
         }
     }
 
@@ -290,7 +299,7 @@ public class Dino : MonoBehaviour
     /// <param name="other"></param>
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "EnemyBody" && wasHit == false)
+        if ((other.tag == "EnemyBody" | other.tag == "BossBody") && wasHit == false)
         {
             Vector2 directionVector = direction == -1 ? Vector2.right : Vector2.left;
             dinoRgdBd2D.position += directionVector * Time.deltaTime * 80;

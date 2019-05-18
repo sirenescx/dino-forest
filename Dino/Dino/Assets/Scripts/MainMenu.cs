@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     public void Settings()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(6);
     }
 
     /// <summary>
@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     public void Tutorial()
     {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(7);
     }
 
     /// <summary>
