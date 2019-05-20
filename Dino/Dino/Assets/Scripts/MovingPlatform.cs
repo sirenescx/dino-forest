@@ -26,7 +26,7 @@ public class MovingPlatform : MonoBehaviour
     /// <summary>
     /// Скорость перемещения платформы.
     /// </summary>
-    public float speed;
+    public static float speed = 1.75f;
     /// <summary>
     /// Физическое тело движущейся платформы.
     /// </summary>
@@ -47,7 +47,7 @@ public class MovingPlatform : MonoBehaviour
     void FixedUpdate()
     {
         platformRgdBd2D.MovePosition(Vector2.MoveTowards(transform.position, points[targetPoint].position, speed * Time.deltaTime));
-
+        
         if (transform.position == points[targetPoint].position)
         {
             targetPoint++;

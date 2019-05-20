@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System;
 
 /// <summary>
 /// Класс персонажа.
@@ -50,7 +51,7 @@ public class Dino : MonoBehaviour
     /// <summary>
     /// Источник аудио.
     /// </summary>
-    AudioSource source;
+    static AudioSource source;
     /// <summary>
     /// Звук убийства врага.
     /// </summary>
@@ -71,6 +72,14 @@ public class Dino : MonoBehaviour
     /// Является ли уровень обучающим.
     /// </summary>
     public bool isTutorial;
+    /// <summary>
+    /// Сила подскока над головой вражеского персонажа при его убийстве игроком.
+    /// </summary>
+    public static float hittingJumpingForce;
+    /// <summary>
+    /// Границы зоны сражения с боссом.
+    /// </summary>
+    public GameObject[] borders;
 
     /// <summary>
     /// Получение значения громкости из файла PlayerPrefs.dat
@@ -95,7 +104,6 @@ public class Dino : MonoBehaviour
         source.volume = PlayerPrefs.GetFloat("VolumeValue");
     }
 
-
     /// <summary>
     /// Метод, отвечающий за прыжок игрока.
     /// </summary>
@@ -114,7 +122,7 @@ public class Dino : MonoBehaviour
     /// </summary>
     void JumpWhileHitting()
     {
-        dinoRgdBd2D.velocity = new Vector2(dinoRgdBd2D.velocity.x, jumpForce + 1);
+        dinoRgdBd2D.velocity = new Vector2(dinoRgdBd2D.velocity.x, hittingJumpingForce);
         isGrounded = false;
         animatorController.SetBool("isGrounded", isGrounded);
     }
@@ -156,7 +164,8 @@ public class Dino : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         animatorController.SetBool("isGrounded", isGrounded);
-        if (!isGrounded) return;
+        if (!isGrounded)
+            return;
     }
 
     /// <summary>
@@ -164,9 +173,15 @@ public class Dino : MonoBehaviour
     /// </summary>
     void Update()
     {
-        source.volume = PlayerPrefs.GetFloat("VolumeValue");
+        try
+        {
+            source.volume = PlayerPrefs.GetFloat("VolumeValue");
+        }
+        catch (NullReferenceException) { }
+
         if (Input.GetAxis("Horizontal") == 0 & isGrounded)
             Idle();
+
         if (lostLives >= 5)
             Die();
     }
@@ -190,6 +205,7 @@ public class Dino : MonoBehaviour
         GameObject closest = null;
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
+
         foreach (var gameObject in objects)
         {
             Vector3 diff = gameObject.transform.position - position;
@@ -207,9 +223,16 @@ public class Dino : MonoBehaviour
     /// Метод, отвечающий за получения урона персонажем.
     /// </summary>
     /// <param name="damage"></param>
-    void GetDamage(int damage)
+    void GetDamage(int damage, int inertia)
     {
         lostLives += damage;
+        Vector2 directionVector = direction == -1 ? Vector2.right : Vector2.left;
+        dinoRgdBd2D.position += directionVector * Time.deltaTime * inertia;
+        try
+        {
+            source.PlayOneShot(dinoHitSound);
+        }
+        catch (NullReferenceException) { }
     }
 
     /// <summary>
@@ -229,6 +252,54 @@ public class Dino : MonoBehaviour
     }
 
     /// <summary>
+    /// Метод для обработки нанесения пользователем удара вражескому персонажу.
+    /// </summary>
+    void HitEnemy()
+    {
+        JumpWhileHitting();
+        Destroy(FindClosest("Enemy"));
+        source.PlayOneShot(enemyHitSound);
+    }
+
+    /// <summary>
+    /// Активация границ зоны сражения с боссом.
+    /// </summary>
+    void ActivateBorders()
+    {
+        foreach (var border in borders)
+            border.gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// Снятие границ зоны сражения с боссом.
+    /// </summary>
+    void DisableBorders()
+    {
+        foreach (var border in borders)
+            Destroy(border.gameObject);
+    }
+
+    /// <summary>
+    /// Метод для обработки нанесения пользователем удара боссу.
+    /// </summary>
+    void HitBoss()
+    {
+        if (Boss.lives <= 0)
+        {
+            StartCoroutine(Boss.DeathTime());
+            Destroy(FindObjectOfType<Boss>().gameObject);
+            DisableBorders();
+        }
+        else
+        {
+            JumpWhileHitting();
+            Boss.lives--;
+            StartCoroutine(Boss.BossUndamagedTimer());
+            FindObjectOfType<AudioSource>().PlayOneShot(enemyHitSound);
+        }
+    }
+
+    /// <summary>
     /// Метод взаимодействия с наносящими урон объектами в движении.
     /// </summary>
     /// <param name="other"></param>
@@ -236,19 +307,13 @@ public class Dino : MonoBehaviour
     {
         if ((other.tag == "EnemyBody" | other.tag == "BossBody") && wasHit == false)
         {
-            Vector2 directionVector = direction == -1 ? Vector2.right : Vector2.left;
-            dinoRgdBd2D.position += directionVector * Time.deltaTime * 70;
-            source.PlayOneShot(dinoHitSound);
-            GetDamage(2);
+            GetDamage(2, 70);
             StartCoroutine(UndamagedTimer());
         }
 
         if (other.tag == "Spikes" && wasHit == false)
         {
-            Vector2 directionVector = direction == -1 ? Vector2.right : Vector2.left;
-            dinoRgdBd2D.position += directionVector * Time.deltaTime * 70;
-            source.PlayOneShot(dinoHitSound);
-            GetDamage(1);
+            GetDamage(1, 70);
             StartCoroutine(UndamagedTimer());
         }
 
@@ -265,24 +330,16 @@ public class Dino : MonoBehaviour
                 lostLives--;
                 Destroy(FindClosest("HealthBottle"));
             }
-            else Destroy(FindClosest("HealthBottle"));
         }
 
         if (other.tag == "EnemyHead")
-        {
-            JumpWhileHitting();
-            Destroy(FindClosest("Enemy"));
-            source.PlayOneShot(enemyHitSound);
-        }
+            HitEnemy();
 
         if (other.tag == "BossHead")
-        {
-        //    JumpWhileHitting();
-            Vector2 directionVector = direction == -1 ? Vector2.right : Vector2.left;
-            dinoRgdBd2D.position += directionVector * Time.deltaTime * 70;
-            Boss.lives--;
-            source.PlayOneShot(enemyHitSound);
-        }
+            HitBoss();
+
+        if (other.tag == "BossFlag")
+            ActivateBorders();
 
         if (other.tag == "LevelEnd")
         {
@@ -301,19 +358,13 @@ public class Dino : MonoBehaviour
     {
         if ((other.tag == "EnemyBody" | other.tag == "BossBody") && wasHit == false)
         {
-            Vector2 directionVector = direction == -1 ? Vector2.right : Vector2.left;
-            dinoRgdBd2D.position += directionVector * Time.deltaTime * 80;
-            source.PlayOneShot(dinoHitSound);
-            GetDamage(2);
+            GetDamage(2, 80);
             StartCoroutine(UndamagedTimer());
         }
 
         if (other.tag == "Spikes" && wasHit == false)
         {
-            Vector2 directionVector = direction == -1 ? Vector2.right : Vector2.left;
-            dinoRgdBd2D.position += directionVector * Time.deltaTime * 80;
-            source.PlayOneShot(dinoHitSound);
-            GetDamage(1);
+            GetDamage(1, 80);
             StartCoroutine(UndamagedTimer());
         }
     }
@@ -326,6 +377,17 @@ public class Dino : MonoBehaviour
     {
         if (other.gameObject.CompareTag("MovingPlatform"))
             transform.SetParent(other.transform);
+    }
+
+    /// <summary>
+    /// Метод для обработки поведения персонажа в статическом состоянии на движущейся платформе.
+    /// </summary>
+    /// <param name="other"></param>
+    void OnCollisionStay2D(Collision2D other)
+    {
+        Vector2 inertia = new Vector2(0, -MovingPlatform.speed);
+        if (other.gameObject.CompareTag("MovingPlatform"))
+            dinoRgdBd2D.velocity = inertia;
     }
 
     /// <summary>

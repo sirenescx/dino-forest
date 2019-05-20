@@ -5452,8 +5452,8 @@ MonoBehaviour:
   - {fileID: 478540427}
   startPoint: 0
   targetPoint: 1
-  speed: 1.5
   platformRgdBd2D: {fileID: 674822495}
+  isHorizontal: 1
 --- !u!50 &674822495
 Rigidbody2D:
   serializedVersion: 4
@@ -7726,7 +7726,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958389939}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.298, y: -2.906, z: 0}
+  m_LocalPosition: {x: -2.03, y: -2.93, z: 0}
   m_LocalScale: {x: 2.009, y: 2.009, z: 1}
   m_Children:
   - {fileID: 974973301}
@@ -9917,6 +9917,7 @@ MonoBehaviour:
   targetPoint: 1
   speed: 2
   enemyController: {fileID: 1225074412}
+  dinoJumpingForce: 5
 --- !u!61 &1225074411
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12880,8 +12881,8 @@ MonoBehaviour:
   - {fileID: 1140378170}
   startPoint: 1
   targetPoint: 0
-  speed: 1.5
   platformRgdBd2D: {fileID: 1526375261}
+  isHorizontal: 1
 --- !u!50 &1526375261
 Rigidbody2D:
   serializedVersion: 4
@@ -14569,6 +14570,7 @@ MonoBehaviour:
   targetPoint: 1
   speed: 2
   enemyController: {fileID: 1767814234}
+  dinoJumpingForce: 5
 --- !u!61 &1767814233
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14735,8 +14737,8 @@ MonoBehaviour:
   - {fileID: 1957879047}
   startPoint: 0
   targetPoint: 1
-  speed: 1.5
   platformRgdBd2D: {fileID: 1770234735}
+  isHorizontal: 1
 --- !u!50 &1770234735
 Rigidbody2D:
   serializedVersion: 4

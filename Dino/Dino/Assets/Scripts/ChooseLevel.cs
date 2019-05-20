@@ -25,6 +25,10 @@ public class ChooseLevel : MonoBehaviour
     /// </summary>
     public Image[] buttonImages;
 
+    /// <summary>
+    /// Метод, вызываемый в начале игры, в котором осуществляется получение количества пройденных уровней, 
+    /// а также отображение открытых и закрытых уровней.
+    /// </summary>
     void Start()
     {
         // Получение количества пройденных уровней.
@@ -59,7 +63,6 @@ public class ChooseLevel : MonoBehaviour
     {
         SceneManager.LoadScene(levelNumber + 1);
     }
-
 
     /// <summary>
     /// Метод перехода к основному игровому меню.

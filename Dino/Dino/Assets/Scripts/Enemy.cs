@@ -29,6 +29,10 @@ public class Enemy : MonoBehaviour
     /// Контроллер персонажа.
     /// </summary>
     public Animator enemyController;
+    /// <summary>
+    /// Сила подпрыгивания персонажа над вражеским.
+    /// </summary>
+    public float dinoJumpingForce = 5f;
 
     /// <summary>
     /// Инициализация физического тела персонажа, установка позиции персонажа на позицию начальной точки.
@@ -37,6 +41,7 @@ public class Enemy : MonoBehaviour
     {
         enemyRgdB2D = GetComponent<Rigidbody2D>();
         transform.position = point[startPoint].position;
+        Dino.hittingJumpingForce = dinoJumpingForce;
     }
 
     /// <summary>

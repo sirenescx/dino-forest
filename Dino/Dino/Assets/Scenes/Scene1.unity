@@ -3059,13 +3059,13 @@ GameObject:
   - component: {fileID: 596898716}
   - component: {fileID: 596898715}
   - component: {fileID: 596898719}
-  - component: {fileID: 596898718}
   - component: {fileID: 596898720}
   - component: {fileID: 596898722}
   - component: {fileID: 596898723}
   - component: {fileID: 596898724}
   - component: {fileID: 596898725}
   - component: {fileID: 596898721}
+  - component: {fileID: 596898718}
   m_Layer: 0
   m_Name: Dino
   m_TagString: Player
@@ -3155,8 +3155,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &596898718
-BoxCollider2D:
+--- !u!60 &596898718
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3168,7 +3168,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.001175344, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3178,9 +3178,17 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.635684, y: 0.7133333}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.31666666, y: 0.33}
+      - {x: 0.29000002, y: 0.35666668}
+      - {x: -0.26333335, y: 0.35666668}
+      - {x: -0.31666666, y: 0.31}
+      - {x: -0.31666666, y: -0.23}
+      - {x: -0.25666666, y: -0.35666668}
+      - {x: 0.030000001, y: -0.35666668}
+      - {x: 0.11666667, y: -0.27}
+      - {x: 0.31666666, y: 0.0033333334}
 --- !u!50 &596898719
 Rigidbody2D:
   serializedVersion: 4
@@ -3193,7 +3201,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 1.8301793
+  m_Mass: 1.6061808
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
@@ -3271,6 +3279,7 @@ MonoBehaviour:
   enemyHitSound: {fileID: 8300000, guid: 9bce904fac08f3743877f574d73020c5, type: 3}
   dinoHitSound: {fileID: 8300000, guid: 02c9b1d275e6e904b94bc454dc51dc15, type: 3}
   isTutorial: 0
+  borders: []
 --- !u!114 &596898724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3529,7 +3538,6 @@ MonoBehaviour:
   - {fileID: 637164874}
   startPoint: 0
   targetPoint: 1
-  speed: 1.5
   platformRgdBd2D: {fileID: 601976597}
 --- !u!1 &611778819
 GameObject:
@@ -8693,6 +8701,7 @@ MonoBehaviour:
   targetPoint: 1
   speed: 2
   enemyController: {fileID: 1490961954}
+  dinoJumpingForce: 5
 --- !u!61 &1490961957
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9675,6 +9684,7 @@ MonoBehaviour:
   targetPoint: 1
   speed: 2
   enemyController: {fileID: 1651281946}
+  dinoJumpingForce: 5
 --- !u!95 &1651281946
 Animator:
   serializedVersion: 3

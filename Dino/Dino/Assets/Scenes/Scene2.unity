@@ -3632,7 +3632,7 @@ GameObject:
   - component: {fileID: 394275308}
   m_Layer: 0
   m_Name: Small Cube 2
-  m_TagString: Untagged
+  m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3669,8 +3669,8 @@ MonoBehaviour:
   - {fileID: 1105742346}
   startPoint: 0
   targetPoint: 1
-  speed: 1.5
   platformRgdBd2D: {fileID: 394275309}
+  isHorizontal: 1
 --- !u!50 &394275309
 Rigidbody2D:
   serializedVersion: 4
@@ -4277,6 +4277,7 @@ MonoBehaviour:
   targetPoint: 1
   speed: 2
   enemyController: {fileID: 485486532}
+  dinoJumpingForce: 5
 --- !u!95 &485486532
 Animator:
   serializedVersion: 3
@@ -5840,8 +5841,8 @@ MonoBehaviour:
   - {fileID: 478540427}
   startPoint: 0
   targetPoint: 2
-  speed: 1.5
   platformRgdBd2D: {fileID: 674822495}
+  isHorizontal: 0
 --- !u!50 &674822495
 Rigidbody2D:
   serializedVersion: 4
@@ -5862,7 +5863,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!61 &674822496
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6345,7 +6346,7 @@ GameObject:
   - component: {fileID: 738619244}
   m_Layer: 0
   m_Name: Small Cube 3
-  m_TagString: Untagged
+  m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6382,8 +6383,8 @@ MonoBehaviour:
   - {fileID: 2020952600}
   startPoint: 1
   targetPoint: 0
-  speed: 1.5
   platformRgdBd2D: {fileID: 738619245}
+  isHorizontal: 1
 --- !u!50 &738619245
 Rigidbody2D:
   serializedVersion: 4
@@ -7906,7 +7907,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958389939}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.416, y: -2.888, z: 0}
+  m_LocalPosition: {x: -2.66, y: -2.89, z: 0}
   m_LocalScale: {x: 2.009, y: 2.009, z: 1}
   m_Children:
   - {fileID: 974973301}
@@ -8679,7 +8680,7 @@ GameObject:
   - component: {fileID: 1094563592}
   m_Layer: 0
   m_Name: Small Cube 1
-  m_TagString: Untagged
+  m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8716,8 +8717,8 @@ MonoBehaviour:
   - {fileID: 675284925}
   startPoint: 0
   targetPoint: 1
-  speed: 2
   platformRgdBd2D: {fileID: 1094563593}
+  isHorizontal: 0
 --- !u!50 &1094563593
 Rigidbody2D:
   serializedVersion: 4
@@ -9971,7 +9972,7 @@ GameObject:
   - component: {fileID: 1325896138}
   m_Layer: 0
   m_Name: Grass Floating Bridge 2
-  m_TagString: Untagged
+  m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10008,8 +10009,8 @@ MonoBehaviour:
   - {fileID: 840965008}
   startPoint: 0
   targetPoint: 1
-  speed: 1.5
   platformRgdBd2D: {fileID: 1325896139}
+  isHorizontal: 1
 --- !u!50 &1325896139
 Rigidbody2D:
   serializedVersion: 4
@@ -12763,6 +12764,7 @@ MonoBehaviour:
   targetPoint: 1
   speed: 2
   enemyController: {fileID: 1653461157}
+  dinoJumpingForce: 5
 --- !u!95 &1653461157
 Animator:
   serializedVersion: 3
