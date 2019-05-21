@@ -39,6 +39,10 @@ public class PauseMenu : MonoBehaviour
     /// Слайдер для изменения громкости.
     /// </summary>
     public Slider volumeSlider;
+    /// <summary>
+    /// Отображается ли меню паузы.
+    /// </summary>
+    bool isDisplayed;
 
     /// <summary>
     /// Установка состояний меню, установка слайдера в положения, соответствующее информации в файле playerprefs.dat.
@@ -73,20 +77,24 @@ public class PauseMenu : MonoBehaviour
             // Если игра поставлена на паузу:
             if (isPaused & !Dino.isDead)
             {
+                Cursor.visible = true;
                 // Меню паузы отображается.
                 menuPanel.SetActive(true);
                 // Остановка игрового времени (пауза).
                 Time.timeScale = 0;
             }
-            // Если игра не поставлена на паузу:
-            else
+            // Если игра не поставлена на паузу и не отображается меню настроек:
+            else if (!isDisplayed)
             {
+                Cursor.visible = false;
                 // Меню паузы не отображается.
                 menuPanel.SetActive(false);
                 // Возвращение игрового времени.
                 Time.timeScale = 1;
+
                 if (Dino.isDead)
                 {
+                    Cursor.visible = true;
                     menuPanel.SetActive(false);
                     // Меню отображается.
                     deathMenuPanel.SetActive(true);
@@ -105,6 +113,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
+
     /// <summary>
     /// Метод для отображения счета на экран.
     /// </summary>
@@ -155,7 +164,9 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void ToSettings()
     {
+        Cursor.visible = true;
         settingsMenu.SetActive(true);
+        isDisplayed = true;
     }
 
     /// <summary>
@@ -164,6 +175,7 @@ public class PauseMenu : MonoBehaviour
     public void Back()
     {
         settingsMenu.SetActive(false);
+        isDisplayed = false;
     }
 
     /// <summary>

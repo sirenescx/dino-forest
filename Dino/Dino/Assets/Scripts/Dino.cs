@@ -102,6 +102,7 @@ public class Dino : MonoBehaviour
         EndLevelMenu.isEnded = false;
         animatorController.SetInteger("direction", 1);
         source.volume = PlayerPrefs.GetFloat("VolumeValue");
+        Cursor.visible = false;
     }
 
     /// <summary>
@@ -386,7 +387,7 @@ public class Dino : MonoBehaviour
     void OnCollisionStay2D(Collision2D other)
     {
         Vector2 inertia = new Vector2(0, -MovingPlatform.speed);
-        if (other.gameObject.CompareTag("MovingPlatform"))
+        if (other.gameObject.CompareTag("MovingVerticalPlatform"))
             dinoRgdBd2D.velocity = inertia;
     }
 

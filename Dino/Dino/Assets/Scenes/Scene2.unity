@@ -3650,7 +3650,7 @@ Transform:
   m_Children:
   - {fileID: 255804237}
   m_Father: {fileID: 1969252149}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &394275308
 MonoBehaviour:
@@ -3667,10 +3667,10 @@ MonoBehaviour:
   points:
   - {fileID: 510219694}
   - {fileID: 1105742346}
-  startPoint: 0
-  targetPoint: 1
+  - {fileID: 1187036052}
+  startPoint: 2
+  targetPoint: 0
   platformRgdBd2D: {fileID: 394275309}
-  isHorizontal: 1
 --- !u!50 &394275309
 Rigidbody2D:
   serializedVersion: 4
@@ -4520,7 +4520,7 @@ GameObject:
   m_Layer: 0
   m_Name: StartPointFC2
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5803,7 +5803,7 @@ GameObject:
   - component: {fileID: 674822494}
   m_Layer: 0
   m_Name: Grass Floating Bridge 1
-  m_TagString: MovingPlatform
+  m_TagString: MovingVerticalPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5842,7 +5842,6 @@ MonoBehaviour:
   startPoint: 0
   targetPoint: 2
   platformRgdBd2D: {fileID: 674822495}
-  isHorizontal: 0
 --- !u!50 &674822495
 Rigidbody2D:
   serializedVersion: 4
@@ -6364,7 +6363,7 @@ Transform:
   m_Children:
   - {fileID: 1047524697}
   m_Father: {fileID: 2036992195}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &738619244
 MonoBehaviour:
@@ -6380,11 +6379,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
   - {fileID: 1632515138}
+  - {fileID: 1073220319}
   - {fileID: 2020952600}
   startPoint: 1
-  targetPoint: 0
+  targetPoint: 2
   platformRgdBd2D: {fileID: 738619245}
-  isHorizontal: 1
 --- !u!50 &738619245
 Rigidbody2D:
   serializedVersion: 4
@@ -6958,7 +6957,7 @@ GameObject:
   m_Layer: 0
   m_Name: EndPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -6970,7 +6969,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840965007}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.5, y: 2.15, z: 0}
+  m_LocalPosition: {x: 33, y: 2.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1348769012}
@@ -7738,6 +7737,7 @@ MonoBehaviour:
   enemyHitSound: {fileID: 8300000, guid: 9bce904fac08f3743877f574d73020c5, type: 3}
   dinoHitSound: {fileID: 8300000, guid: 02c9b1d275e6e904b94bc454dc51dc15, type: 3}
   isTutorial: 0
+  borders: []
 --- !u!114 &958389942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8629,6 +8629,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1073220318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1073220319}
+  m_Layer: 0
+  m_Name: MiddlePointFC3
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1073220319
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073220318}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.4, y: -0.04, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2036992195}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1089140867
 GameObject:
   m_ObjectHideFlags: 0
@@ -8680,7 +8710,7 @@ GameObject:
   - component: {fileID: 1094563592}
   m_Layer: 0
   m_Name: Small Cube 1
-  m_TagString: MovingPlatform
+  m_TagString: MovingVerticalPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8718,7 +8748,6 @@ MonoBehaviour:
   startPoint: 0
   targetPoint: 1
   platformRgdBd2D: {fileID: 1094563593}
-  isHorizontal: 0
 --- !u!50 &1094563593
 Rigidbody2D:
   serializedVersion: 4
@@ -8905,7 +8934,7 @@ GameObject:
   m_Layer: 0
   m_Name: EndPointFC2
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -8921,7 +8950,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1969252149}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1107154901
 GameObject:
@@ -9269,6 +9298,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171030178}
   m_CullTransparentMesh: 0
+--- !u!1 &1187036051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187036052}
+  m_Layer: 0
+  m_Name: MiddlePointFC2
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1187036052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187036051}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1, y: -0.04, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1969252149}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1199534307
 GameObject:
   m_ObjectHideFlags: 0
@@ -10010,7 +10069,6 @@ MonoBehaviour:
   startPoint: 0
   targetPoint: 1
   platformRgdBd2D: {fileID: 1325896139}
-  isHorizontal: 1
 --- !u!50 &1325896139
 Rigidbody2D:
   serializedVersion: 4
@@ -11658,7 +11716,7 @@ GameObject:
   m_Layer: 0
   m_Name: StartPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -12473,7 +12531,7 @@ GameObject:
   m_Layer: 0
   m_Name: StartPointFC3
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -13883,6 +13941,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 510219694}
+  - {fileID: 1187036052}
   - {fileID: 1105742346}
   - {fileID: 394275307}
   m_Father: {fileID: 375919204}
@@ -14179,7 +14238,7 @@ GameObject:
   m_Layer: 0
   m_Name: EndPointFC3
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -14195,7 +14254,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2036992195}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2036992194
 GameObject:
@@ -14225,6 +14284,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1632515138}
+  - {fileID: 1073220319}
   - {fileID: 2020952600}
   - {fileID: 738619243}
   m_Father: {fileID: 375919204}

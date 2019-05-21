@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class MainMenu : MonoBehaviour
 {
+    void Awake()
+    {
+        Cursor.visible = true;
+    }
     /// <summary>
     /// Метод перехода к меню выбора уровня.
     /// </summary>

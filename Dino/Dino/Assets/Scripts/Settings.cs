@@ -25,6 +25,7 @@ public class Settings : MonoBehaviour
     void Awake()
     {
         volumeSlider.value = PlayerPrefs.GetFloat("VolumeValue");
+        Cursor.visible = true;
     }
 
     /// <summary>
