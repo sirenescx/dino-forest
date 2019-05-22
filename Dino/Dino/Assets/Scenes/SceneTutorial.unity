@@ -2059,7 +2059,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -8, y: 8}
-  m_SizeDelta: {x: 680, y: 180}
+  m_SizeDelta: {x: 1920, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &386717403
 MonoBehaviour:
@@ -2088,7 +2088,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 200
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -4695,6 +4695,7 @@ MonoBehaviour:
   enemyHitSound: {fileID: 8300000, guid: 9bce904fac08f3743877f574d73020c5, type: 3}
   dinoHitSound: {fileID: 8300000, guid: 02c9b1d275e6e904b94bc454dc51dc15, type: 3}
   isTutorial: 1
+  borders: []
 --- !u!114 &882904219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5598,7 +5599,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 8, y: 192}
-  m_SizeDelta: {x: 680, y: 180}
+  m_SizeDelta: {x: 1920, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1044049943
 MonoBehaviour:
@@ -5627,7 +5628,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 200
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -6437,6 +6438,7 @@ MonoBehaviour:
   targetPoint: 1
   speed: 2
   enemyController: {fileID: 1198922546}
+  dinoJumpingForce: 5
 --- !u!1 &1222881744
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,8 @@
 ﻿#pragma warning disable 0649
 using UnityEngine;
 using System.Collections;
+using System;
+
 
 class Boss : MonoBehaviour
 {
@@ -32,6 +34,10 @@ class Boss : MonoBehaviour
     /// Количество жизненей врага.
     /// </summary>
     public static int lives = 10;
+    /// <summary>
+    /// Рандомайзер для генерации номера следующей точки.
+    /// </summary>
+    public static System.Random generateRandomPoint = new System.Random();
 
     /// <summary>
     /// Инициализация физического тела персонажа, установка позиции персонажа на позицию начальной точки.
@@ -52,12 +58,21 @@ class Boss : MonoBehaviour
 
         if (transform.position == point[targetPoint].position)
         {
+            int currentPoint = -1;
+
             if (targetPoint == 2 || targetPoint == 1)
                 bossController.SetInteger("bossDirection", -1);
             else
                 bossController.SetInteger("bossDirection", 1);
 
-            targetPoint++;
+            currentPoint = targetPoint;
+            while (true)
+            {
+                targetPoint = generateRandomPoint.Next(0, point.Length);
+                if (targetPoint != currentPoint) break;
+            }
+
+            // targetPoint++;
 
             if (targetPoint == point.Length)
             {
@@ -73,11 +88,17 @@ class Boss : MonoBehaviour
     /// <returns></returns>
     public static IEnumerator BossUndamagedTimer()
     {
-        string hitState = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().GetInteger("bossDirection") == 1 ? "BossHitRight" : "BossHitLeft";
-        GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().CrossFadeInFixedTime(hitState, 0.5f);
-        yield return new WaitForSeconds(0.75f);
-        string afterHitState = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().GetInteger("bossDirection") == 1 ? "BossRight" : "BossLeft";
-        GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().Play(afterHitState);
+        try
+        {
+            string hitState = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().GetInteger("bossDirection") == 1 ? "BossHitRight" : "BossHitLeft";
+            GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().CrossFadeInFixedTime(hitState, 0.5f);
+        } catch (NullReferenceException) { }
+            yield return new WaitForSeconds(0.75f);
+        try
+        {
+            string afterHitState = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().GetInteger("bossDirection") == 1 ? "BossRight" : "BossLeft";
+            GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().Play(afterHitState);
+        } catch (NullReferenceException) { }
     }
 
     /// <summary>

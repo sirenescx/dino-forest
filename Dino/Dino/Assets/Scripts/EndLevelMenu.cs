@@ -56,6 +56,7 @@ public class EndLevelMenu : MonoBehaviour
     {
         if (isEnded)
         {
+            Cursor.visible = true;
             endLevelMenuPanel.SetActive(true);
             Time.timeScale = 0;
             heartImage.enabled = false;
