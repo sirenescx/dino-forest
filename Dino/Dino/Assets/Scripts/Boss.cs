@@ -61,18 +61,25 @@ class Boss : MonoBehaviour
             int currentPoint = -1;
 
             if (targetPoint == 2 || targetPoint == 1)
+            {
                 bossController.SetInteger("bossDirection", -1);
+            }
             else
+            {
                 bossController.SetInteger("bossDirection", 1);
+            }
 
             currentPoint = targetPoint;
+            
             while (true)
             {
                 targetPoint = generateRandomPoint.Next(0, point.Length);
-                if (targetPoint != currentPoint) break;
+                
+                if (targetPoint != currentPoint) 
+                { 
+                    break;
+                }
             }
-
-            // targetPoint++;
 
             if (targetPoint == point.Length)
             {
@@ -90,13 +97,19 @@ class Boss : MonoBehaviour
     {
         try
         {
-            string hitState = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().GetInteger("bossDirection") == 1 ? "BossHitRight" : "BossHitLeft";
+            string hitState = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().GetInteger("bossDirection") == 1 
+                ? "BossHitRight" 
+                : "BossHitLeft";
             GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().CrossFadeInFixedTime(hitState, 0.5f);
         } catch (NullReferenceException) { }
-            yield return new WaitForSeconds(0.75f);
+        
+        yield return new WaitForSeconds(0.75f);
+        
         try
         {
-            string afterHitState = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().GetInteger("bossDirection") == 1 ? "BossRight" : "BossLeft";
+            string afterHitState = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().GetInteger("bossDirection") == 1 
+                ? "BossRight" 
+                : "BossLeft";
             GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>().Play(afterHitState);
         } catch (NullReferenceException) { }
     }
