@@ -30,8 +30,13 @@ public class DinoStarsScale : MonoBehaviour
     void Start()
     {
         if (!isTutorial)
+        {
             levelCoinAmount = int.Parse(SceneManager.GetActiveScene().name.Substring(5, 1)) * 6;
-        else return;
+        }
+        else 
+        {
+            return;
+        }
     }
 
     /// <summary>
@@ -39,17 +44,31 @@ public class DinoStarsScale : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (isTutorial) return;
+        if (isTutorial) 
+        {
+            return;
+        }
         else
         {
             if (CoinPick.coinCounter <= levelCoinAmount / 4f)
+            {
                 starImage.sprite = stars[3];
+            }
+            
             if (CoinPick.coinCounter > levelCoinAmount / 4f & CoinPick.coinCounter <= levelCoinAmount / 2f)
+            {
                 starImage.sprite = stars[2];
+            }
+            
             if (CoinPick.coinCounter > levelCoinAmount / 2f & CoinPick.coinCounter < levelCoinAmount * 3f / 4)
+            {
                 starImage.sprite = stars[1];
+            }
+            
             if (CoinPick.coinCounter > levelCoinAmount * 3f / 4)
+            {
                 starImage.sprite = stars[0];
+            }
         }
     }
 }
