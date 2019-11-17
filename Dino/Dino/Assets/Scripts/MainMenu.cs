@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     {
         Cursor.visible = true;
     }
+    
     /// <summary>
     /// Метод перехода к меню выбора уровня.
     /// </summary>
