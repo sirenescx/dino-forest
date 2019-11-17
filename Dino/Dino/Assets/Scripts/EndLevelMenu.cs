@@ -44,9 +44,13 @@ public class EndLevelMenu : MonoBehaviour
         Time.timeScale = 1;
         endLevelMenuPanel.SetActive(false);
         if (!isTutorial)
-        levelNumberText.text = $"Level {int.Parse(SceneManager.GetActiveScene().name.Substring(5, 1))} Finished";
+        {
+            levelNumberText.text = $"Level {int.Parse(SceneManager.GetActiveScene().name.Substring(5, 1))} Finished";
+        }
         else
+        {
             levelNumberText.text = $"Tutorial Finished";
+        }
     }
 
     /// <summary>
