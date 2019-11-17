@@ -43,8 +43,10 @@ public class AudioManager : MonoBehaviour
             }
             else
             {
-                if (this != instance)
+                if (this != instance) 
+                {
                     Destroy(gameObject);
+                }
             }
 
         source = GetComponent<AudioSource>();
