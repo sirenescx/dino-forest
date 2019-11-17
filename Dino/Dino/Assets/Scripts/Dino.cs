@@ -165,8 +165,10 @@ public class Dino : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         animatorController.SetBool("isGrounded", isGrounded);
-        if (!isGrounded)
+        if (!isGrounded) 
+        {
             return;
+        }
     }
 
     /// <summary>
@@ -180,11 +182,15 @@ public class Dino : MonoBehaviour
         }
         catch (NullReferenceException) { }
 
-        if (Input.GetAxis("Horizontal") == 0 & isGrounded)
+        if (Input.GetAxis("Horizontal") == 0 & isGrounded) 
+        {
             Idle();
-
+        }
+        
         if (lostLives >= 5)
+        {
             Die();
+        }
     }
 
     /// <summary>
@@ -267,8 +273,10 @@ public class Dino : MonoBehaviour
     /// </summary>
     void ActivateBorders()
     {
-        foreach (var border in borders)
+        foreach (var border in borders) 
+        {
             border.gameObject.SetActive(true);
+        }
     }
 
     /// <summary>
@@ -277,7 +285,9 @@ public class Dino : MonoBehaviour
     void DisableBorders()
     {
         foreach (var border in borders)
+        {
             Destroy(border.gameObject);
+        }
     }
 
     /// <summary>
@@ -325,8 +335,7 @@ public class Dino : MonoBehaviour
                 lostLives -= 2;
                 Destroy(FindClosest("HealthBottle"));
             }
-            else
-            if (lostLives > 0)
+            else if (lostLives > 0)
             {
                 lostLives--;
                 Destroy(FindClosest("HealthBottle"));
@@ -334,20 +343,28 @@ public class Dino : MonoBehaviour
         }
 
         if (other.tag == "EnemyHead")
+        {
             HitEnemy();
+        }
 
         if (other.tag == "BossHead")
+        {
             HitBoss();
+        }
 
         if (other.tag == "BossFlag")
+        {
             ActivateBorders();
+        }
 
         if (other.tag == "LevelEnd")
         {
             EndLevelMenu.isEnded = true;
             EndLevelMenu.pauseMenuDisabled = true;
-            if (!isTutorial)
+            if (!isTutorial) 
+            {
                 PlayerPrefs.SetInt("openedLevels", int.Parse(SceneManager.GetActiveScene().name.Substring(5, 1)));
+            }
         }
     }
 
@@ -377,7 +394,9 @@ public class Dino : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("MovingPlatform"))
+        {
             transform.SetParent(other.transform);
+        }
     }
 
     /// <summary>
@@ -388,7 +407,9 @@ public class Dino : MonoBehaviour
     {
         Vector2 inertia = new Vector2(0, -MovingPlatform.speed);
         if (other.gameObject.CompareTag("MovingVerticalPlatform"))
+        {
             dinoRgdBd2D.velocity = inertia;
+        }
     }
 
     /// <summary>
@@ -398,6 +419,8 @@ public class Dino : MonoBehaviour
     void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("MovingPlatform"))
+        {
             transform.SetParent(null);
+        }
     }
 }
